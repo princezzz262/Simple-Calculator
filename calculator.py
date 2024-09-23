@@ -86,6 +86,12 @@ class Ui_Calculator(object):
     def dot(self):
              self.question += "."
              self.QUESTIONview.setText(self.question)
+             
+    def M(self):
+             self.hold = self.result
+             self.question = ""
+             self.question += self.hold
+             self.QUESTIONview.setText(self.question)
         
     def equals(self):
         try:
@@ -272,7 +278,7 @@ class Ui_Calculator(object):
         self.PLUSbtn.setObjectName("PLUSbtn")
         self.gridLayout.addWidget(self.PLUSbtn, 3, 3, 1, 1)
         self.THREEbtn = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.THREEbtn.setMinimumSize(QtCore.QSize(50, 50))
+        self.THREEbtn.setMinimumSize(QtCore.QSize(50, 50))     
         self.THREEbtn.clicked.connect(self.three)
         self.THREEbtn.setStyleSheet("font: 75 16pt \"MS Shell Dlg 2\";\n"
 "color: rgb(255, 255, 255);\n"
@@ -287,8 +293,17 @@ class Ui_Calculator(object):
 "color: rgb(255, 255, 255);\n"
 "background-color: rgb(0, 0, 0);\n"
 "border-radius: 10px;")
+        self.Mbtn = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.Mbtn.clicked.connect(self.M)
+        self.Mbtn.setMinimumSize(QtCore.QSize(50, 50))
+        self.gridLayout.addWidget(self.Mbtn, 4, 1, 1, 1)
+        self.Mbtn.setStyleSheet("font: 75 16pt \"MS Shell Dlg 2\";\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgb(255, 0, 0);\n"
+"border-radius: 10px;")
+        
         self.ZERObtn.setObjectName("ZERObtn")
-        self.gridLayout.addWidget(self.ZERObtn, 4, 0, 1, 2)
+        self.gridLayout.addWidget(self.ZERObtn, 4, 0, 1, 1)
         self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 9, 281, 163))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
@@ -344,6 +359,7 @@ class Ui_Calculator(object):
         self.Cbtn.setText(_translate("Calculator", "C"))
         self.SEVENbtn.setText(_translate("Calculator", "7"))
         self.FIVEbtn.setText(_translate("Calculator", "5"))
+        self.Mbtn.setText(_translate("Calculator", "M"))
         self.EIGHTbtn.setText(_translate("Calculator", "8"))
         self.MULTIPLYbtn.setText(_translate("Calculator", "x"))
         self.SUBTACTbtn.setText(_translate("Calculator", "-"))
